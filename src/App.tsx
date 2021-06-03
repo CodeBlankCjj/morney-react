@@ -1,10 +1,11 @@
 import React from 'react';
 import {BrowserRouter as Router, Link, Redirect, Route, Switch} from 'react-router-dom';
 import styled from 'styled-components';
+import NavWrapper from './components/Nav';
+import Nav from './components/Nav';
 
 const Wrapper = styled.div`
   min-height: 100vh;
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
 `;
@@ -12,17 +13,7 @@ const Main = styled.div`
   flex-grow: 1;
   overflow: auto;
 `;
-const Nav = styled.nav`
-  > ul {
-    display: flex;
 
-    > li {
-      width: 33.3%;
-      text-align: center;
-      padding: 16px;
-    }
-  }
-`;
 
 function App() {
   return (
@@ -45,19 +36,7 @@ function App() {
             </Route>
           </Switch>
         </Main>
-        <Nav>
-          <ul>
-            <li>
-              <Link to="/tags">标签</Link>
-            </li>
-            <li>
-              <Link to="/money">记账</Link>
-            </li>
-            <li>
-              <Link to="/statistics">统计</Link>
-            </li>
-          </ul>
-        </Nav>
+        <Nav/>
       </Wrapper>
     </Router>
   );
