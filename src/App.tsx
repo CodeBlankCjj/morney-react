@@ -1,7 +1,6 @@
 import React from 'react';
-import {BrowserRouter as Router, Link, Redirect, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom';
 import styled from 'styled-components';
-import NavWrapper from './components/Nav';
 import Nav from './components/Nav';
 
 const Wrapper = styled.div`
