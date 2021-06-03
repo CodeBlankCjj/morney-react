@@ -6,8 +6,8 @@ try {importAll(require.context('icons', true, /\.svg$/));} catch (error) {consol
 type Props = {
   name: string
 }
-
 const Icon = (props: Props) => {
+  // eslint-disable-next-line
   return (
     <svg className="icon">
       <use xlinkHref={'#' + props.name}/>
