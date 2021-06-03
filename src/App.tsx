@@ -1,7 +1,9 @@
 import React from 'react';
 import {BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom';
-import Layout from './components/Layout';
-
+import Tags from 'views/Tags';
+import Money from 'views/Money';
+import Statistics from 'views/Statistics';
+import NoMatch from './views/NoMatch';
 
 function App() {
   return (
@@ -22,34 +24,6 @@ function App() {
         </Route>
       </Switch>
     </Router>
-  );
-}
-
-function NoMatch() {
-  return <h2>输错地址了！！！！！！</h2>;
-}
-
-function Statistics() {
-  return (
-    <Layout>
-      <h2>Statistics</h2>
-    </Layout>
-  );
-}
-
-function Tags() {
-  return (
-    <Layout>
-      <h2>Tags</h2>
-    </Layout>
-  );
-}
-
-function Money() {
-  return (
-    <Layout>
-      <h2>Money</h2>
-    </Layout>
   );
 }
 
