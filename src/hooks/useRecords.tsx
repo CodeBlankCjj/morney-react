@@ -15,8 +15,14 @@ const useRecords = () => {
     setRecords(JSON.parse(window.localStorage.getItem('records') || '[]'));
   }, []);
   const addRecord = (newRecord: newRecordItem) => {
+    if (newRecord.amount <= 0) {return false;}
+    if (newRecord.tagIds.length === 0) {
+      alert('请选择至少一个标签');
+      return false;
+    }
     const record = {...newRecord, createAt: (new Date()).toISOString()};
     setRecords([...records, record]);
+    return true;
   };
 
 

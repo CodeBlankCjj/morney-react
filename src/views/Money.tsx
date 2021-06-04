@@ -31,10 +31,10 @@ function Money() {
     });
   };
   const submit = () => {
-    console.log(111);
-    addRecord(selected);
-    alert('保存成功');
-    setSelected(defaultFormDate);
+    if (addRecord(selected)) {
+      alert('保存成功');
+      setSelected(defaultFormDate);
+    }
   };
   return (
     <MyLayout>
