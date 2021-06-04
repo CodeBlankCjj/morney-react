@@ -23,17 +23,13 @@ const NumberPadSection: React.FC<Props> = (props) => {
   };
   const onClickButtonWrapper = (e: React.MouseEvent) => {
     const text = (e.target as HTMLButtonElement).textContent;
-
     if (text === null) {return;}
-    if (text === 'ok') {
-      if (props.onOk) {
-        props.onOk();
-      }
+    if (text === 'OK') {
+      if (props.onOk) {props.onOk();}
       return;
     }
 
-    if (' 1234567890.'.split('').concat(['删除', '清空']).indexOf(text)) {
-      console.log(text);
+    if (' 1234567890. '.split('').concat(['删除', '清空']).indexOf(text) >= 0) {
       setOutput(generateOutput(text, output));
     }
   };

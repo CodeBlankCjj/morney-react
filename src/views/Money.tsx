@@ -5,6 +5,7 @@ import TagsSection from './Money/TagsSection';
 import CategorySection from './Money/CategorySection';
 import NoteSection from './Money/NoteSection';
 import NumberPadSection from './Money/NumberPadSection';
+import useRecords from '../hooks/useRecords';
 
 const MyLayout = styled(Layout)`
   display: flex;
@@ -13,18 +14,27 @@ const MyLayout = styled(Layout)`
 
 type Category = '-' | '+'
 
+
+const defaultFormDate = {
+  tagIds: [] as number[],
+  note: '',
+  category: '-' as Category,
+  amount: 0
+};
+
 function Money() {
-  const [selected, setSelected] = useState({
-    tagIds: [] as number[],
-    note: '',
-    category: '-' as Category,
-    amount: 0
-  });
-  type Selected = typeof selected
-  const onChange = (obj: Partial<Selected>) => {
+  const [selected, setSelected] = useState(defaultFormDate);
+  const {addRecord} = useRecords();
+  const onChange = (obj: Partial<typeof selected>) => {
     setSelected({
       ...selected, ...obj
     });
+  };
+  const submit = () => {
+    console.log(111);
+    addRecord(selected);
+    alert('保存成功');
+    setSelected(defaultFormDate);
   };
   return (
     <MyLayout>
@@ -35,7 +45,7 @@ function Money() {
       <CategorySection value={selected.category}
                        onChange={(category) => onChange({category})}/>
       <NumberPadSection value={selected.amount}
-                        onChange={(amount) => onChange({amount})}/>
+                        onChange={(amount) => onChange({amount})} onOk={submit}/>
     </MyLayout>
   );
 }
