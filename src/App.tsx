@@ -16,7 +16,6 @@ function App() {
     <AppWrapper>
       <Router>
         <Switch>
-          <Redirect exact from="/" to="money"/>
           <Route exact path="/tags">
             <Tags/>
           </Route>
@@ -29,6 +28,7 @@ function App() {
           <Route exact path="/statistics">
             <Statistics/>
           </Route>
+          <Redirect exact from="/" to="/money"/>
           <Route path="*">
             <NoMatch/>
           </Route>
